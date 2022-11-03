@@ -17,7 +17,7 @@
     "mysql2": "^2.2.5",
     "console.table": "^0.10.0",
     "sequelize": "^6.3.5",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.2.0"
   },
   "bugs": {
     "url": "https://github.com/Josejpd3/12-Module-Challenge/issues"

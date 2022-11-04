@@ -30,7 +30,9 @@ const initQuestion = function () {
                 });
                 break;
             case "View all roles":
-
+                db.query('SELECT * FROM role', function (err, role) {
+                    console.table(role);
+                });
                 break;
             case "View all employees":
 

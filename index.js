@@ -30,8 +30,9 @@ const initQuestion = function () {
                 });
                 break;
             case "View all roles":
-                db.query('SELECT * FROM role', function (err, role) {
+                db.query(`SELECT role.id, role.title, department.department_name AS department, role.salary FROM role JOIN department ON role.department_id = department.id;`, function (err, role) {
                     console.table(role);
+                    initQuestion()
                 });
                 break;
             case "View all employees":

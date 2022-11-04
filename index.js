@@ -53,6 +53,9 @@ const initQuestion = function () {
             case "Update an employee":
 
                 break;
+            case "Quit":
+                process.exit();
+                break;
             default:
                 break;
         }

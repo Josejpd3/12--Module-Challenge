@@ -19,6 +19,35 @@ const initQuestion = function () {
             ],
         }
     ])
+    .then(choice => {
+        console.log(`You have selected ${choice.start}`);
+
+        switch (choice.start) {
+            case "View all departments":
+
+                break;
+            case "View all roles":
+
+                break;
+            case "View all employees":
+
+                break;
+            case "Add a department":
+
+                break;
+            case "Add a role":
+
+                break;
+            case "Add an employee":
+
+                break;
+            case "Update an employee":
+
+                break;
+            default:
+                break;
+        }
+    })
 }
 
 initQuestion()

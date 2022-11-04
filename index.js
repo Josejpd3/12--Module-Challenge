@@ -24,7 +24,10 @@ const initQuestion = function () {
 
         switch (choice.start) {
             case "View all departments":
-
+                db.query('SELECT id, department_name FROM department', function (err, department) {
+                    console.table(department);
+                    initQuestion()
+                });
                 break;
             case "View all roles":
 

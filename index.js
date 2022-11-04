@@ -35,7 +35,10 @@ const initQuestion = function () {
                 });
                 break;
             case "View all employees":
-
+                db.query('SELECT * FROM employee', function (err, department) {
+                    console.table(department);
+                    initQuestion()
+                });
                 break;
             case "Add a department":
 

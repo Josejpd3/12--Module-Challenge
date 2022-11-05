@@ -36,7 +36,17 @@ const initQuestion = function () {
                 });
                 break;
             case "View all employees":
-                db.query('SELECT * FROM employee', function (err, department) {
+                db.query(`
+                WITH RECURSIVE manager AS (
+                    SELECT id, first_name, last_name, role_id, manager_id FROM employee WHERE manager_id IS NULL
+                    UNION ALL SELECT  e.id, e.first_name, e.last_name, e.role_id, e.manager_id FROM employee e, manager m WHERE e.manager_id = m.id
+                )
+                SELECT  
+                    employee.id, employee.first_name, employee.last_name, role.title, department.department_name AS department, role.salary,
+                    CONCAT(manager.first_name, ' ', manager.last_name) as manager_name FROM employee
+                    JOIN role ON employee.role_id = role.id
+                    JOIN department ON role.department_id = department.id
+                    LEFT JOIN manager ON employee.manager_id = manager.id;`, function (err, department) {
                     console.table(department);
                     initQuestion()
                 });

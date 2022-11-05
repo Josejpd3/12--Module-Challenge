@@ -1,5 +1,9 @@
 const inquirer = require('inquirer');
 const db = require('./config/connection')
+const addDepartment = require('./helpers/addDepartment')
+const addEmployee = require('./helpers/addEmployee')
+const addRole = require('./helpers/addRole')
+const updateEmployee = require('./helpers/updateEmployee')
 
 const initQuestion = function () {
     inquirer.prompt([

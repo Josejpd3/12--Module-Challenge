@@ -80,5 +80,18 @@ initQuestion()
 
 // Add a deparment
 function addDepartment () {
-
+    inquirer
+         .prompt([
+            {
+                type: "input",
+                name: "dept",
+                message: "What is the name of the new department?"
+            }
+         ])
+         .then((data) => {
+            db.query(`INSERT INTO department (department_name) VALUES (?);`, data.dept, function (err, department) {
+                console.log(`You have added a new department (${data.dept})`);
+                initQuestion()
+            });
+         })
     }

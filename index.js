@@ -95,3 +95,10 @@ function addDepartment () {
             });
          })
     }
+
+// Add a role
+
+function addRole() {
+
+
+}

@@ -136,6 +136,8 @@ function addRole() {
                     department_id: data.department
                 },
             )
+            console.log(`You have created a new role (${data.title})!!`);
+            initQuestion();
         })
     })
 

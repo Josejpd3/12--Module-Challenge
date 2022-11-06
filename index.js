@@ -1,9 +1,5 @@
 const inquirer = require('inquirer');
 const db = require('./config/connection')
-const addDepartment = require('./helpers/addDepartment')
-const addEmployee = require('./helpers/addEmployee')
-const addRole = require('./helpers/addRole')
-const updateEmployee = require('./helpers/updateEmployee')
 
 const initQuestion = function () {
     inquirer.prompt([
@@ -24,8 +20,6 @@ const initQuestion = function () {
         }
     ])
     .then(choice => {
-        console.log(`You have selected ${choice.start}`);
-
         switch (choice.start) {
             case "View all departments":
                 db.query('SELECT id, department_name FROM department', function (err, department) {

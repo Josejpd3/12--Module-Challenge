@@ -104,6 +104,32 @@ function addRole() {
         for (let i = 0; i < response.length; i++) {
             choiceArray.push(response[i].department_name);
         }
+        inquirer.prompt([
+           {
+               type: "input",
+               name: "title",
+               message: "What is the name of the new role?"
+           },
+           {
+               type: "rawlist",
+               name: "options",
+               message: "What is the index of the department?",
+               choices: choiceArray
+           },
+           {
+               type: "input",
+               name: "department",
+               message: `Please re-enter the index of the previous question?`
+           },
+           {
+               type: "input",
+               name: "salary",
+               message: "What is the salary for this role?"
+           }
+        ])
+        .then((data) => {
+
+        })
     })
 
 }

@@ -53,7 +53,7 @@ const initQuestion = function () {
                 addDepartment();
                 break;
             case "Add a role":
-
+                addRole();
                 break;
             case "Add an employee":
 

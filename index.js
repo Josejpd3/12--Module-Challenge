@@ -50,7 +50,7 @@ const initQuestion = function () {
                 });
                 break;
             case "Add a department":
-
+                addDepartment();
                 break;
             case "Add a role":
 

@@ -128,7 +128,14 @@ function addRole() {
            }
         ])
         .then((data) => {
-
+            db.query(
+                "INSERT INTO role SET ?",
+                {
+                    title: data.title,
+                    salary: data.salary,
+                    department_id: data.department
+                },
+            )
         })
     })
 

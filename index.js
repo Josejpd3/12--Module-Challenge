@@ -101,7 +101,9 @@ function addDepartment () {
 function addRole() {
     let choiceArray = []
     db.query("SELECT * FROM department", (err, response) => {
-
+        for (let i = 0; i < response.length; i++) {
+            choiceArray.push(response[i].department_name);
+        }
     })
 
 }

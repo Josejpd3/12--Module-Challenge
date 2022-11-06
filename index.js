@@ -71,3 +71,14 @@ const initQuestion = function () {
 }
 
 initQuestion()
+
+
+// -----------------------\
+// Database modifications  
+// -----------------------/
+
+
+// Add a deparment
+function addDepartment () {
+
+    }

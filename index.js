@@ -176,7 +176,12 @@ function addEmployee () {
             }
         ])
         .then((data) => {
-
+            db.query("INSERT INTO employee SET ?",
+            {
+                first_name: data.firstName,
+                last_name: data.lastName,
+                role_id: data.role
+            })
         })
     })
 }

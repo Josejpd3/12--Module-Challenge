@@ -186,3 +186,9 @@ function addEmployee () {
         })
     })
 }
+
+// Update Employee
+
+function updateEmployee () {
+    
+}

@@ -201,5 +201,40 @@ function updateEmployee () {
                 roleChoices.push(response[i].title);
             }
         })
+        inquirer.prompt([
+            {
+                type: "list",
+                name: "employees",
+                message: "Select the employee",
+                choices: employeeChoices
+            },
+            {
+                type: "input",
+                name: "selectedEmployee",
+                message: "Please enter the ID of the selected employee"
+            },
+            {
+                type: "rawlist",
+                name: "roles",
+                message: "Select the ID of the new role",
+                choices: roleChoices
+            },
+            {
+                type: "input",
+                name: "selectedRole",
+                message: "Please re-enter the ID of the role"
+            }
+        ])
+        .then((data) => {
+            db.query("UPDATE employee SET ? WHERE ?",
+            [
+                {
+                    role_id: data.selectedRole
+                },
+                {
+                    id: data.selectedEmployee
+                }
+            ])
+        })
     })
 }

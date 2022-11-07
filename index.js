@@ -182,6 +182,8 @@ function addEmployee () {
                 last_name: data.lastName,
                 role_id: data.role
             })
+            console.log(`${data.firstName} ${data.lastName} has been added`);
+            initQuestion();
         })
     })
 }

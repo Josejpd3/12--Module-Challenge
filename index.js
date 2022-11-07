@@ -235,6 +235,8 @@ function updateEmployee () {
                     id: data.selectedEmployee
                 }
             ])
+            console.log("Employee Update Complete");
+            initQuestion()
         })
     })
 }

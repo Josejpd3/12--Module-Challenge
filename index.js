@@ -197,4 +197,9 @@ function updateEmployee () {
             employeeChoices.push(`ID:${response[i].id} ${response[i].first_name} ${response[i].last_name}`);
         }
     })
+    db.query("SELECT * FROM role", (err, response) => {
+        for (let i = 0; i < response.length; i++) {
+            roleChoices.push(response[i].title);
+        }
+    })
 }

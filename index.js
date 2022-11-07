@@ -147,5 +147,10 @@ function addRole() {
 // Add Employee
 
 function addEmployee () {
-
+    let choices = []
+    db.query("SELECT * FROM role", (err, response) => {
+        for (let i = 0; i < response.length; i++) {
+            choices.push(response[i].title);
+        }
+    })
 }

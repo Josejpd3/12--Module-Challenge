@@ -192,4 +192,9 @@ function addEmployee () {
 function updateEmployee () {
     let employeeChoices = []
     let roleChoices = []
+    db.query("SELECT * FROM employee", (err, response) => {
+        for (let i = 0; i < response.length; i++) {
+            employeeChoices.push(`ID:${response[i].id} ${response[i].first_name} ${response[i].last_name}`);
+        }
+    })
 }

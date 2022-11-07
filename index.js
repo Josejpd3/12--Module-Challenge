@@ -152,5 +152,31 @@ function addEmployee () {
         for (let i = 0; i < response.length; i++) {
             choices.push(response[i].title);
         }
+        inquirer.prompt([
+            {
+                type: "input",
+                name: "firstName",
+                message: "What is the first name of the new employee?"
+            },
+            {
+                type: "input",
+                name: "lastName",
+                message: "What is the last name of the new employee?"
+            },
+            {
+                type: "rawlist",
+                name: "rolelist",
+                message: "Select the index of the role for this employee",
+                choices: choices
+            },
+            {
+                type: "input",
+                name: "role",
+                message: "Please re-enter the previous index"
+            }
+        ])
+        .then((data) => {
+
+        })
     })
 }

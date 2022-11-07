@@ -210,12 +210,11 @@ function updateEmployee () {
             }
         ])
         .then((data) => {
-            
+            db.query("SELECT * FROM role", (err, response) => {
+                for (let i = 0; i < response.length; i++) {
+                    roleChoices.push(response[i].title);
+                }
+            })
         })
-    })
-    db.query("SELECT * FROM role", (err, response) => {
-        for (let i = 0; i < response.length; i++) {
-            roleChoices.push(response[i].title);
-        }
     })
 }

@@ -100,10 +100,10 @@ function addDepartment () {
 // Add Role
 
 function addRole() {
-    let choiceArray = []
+    let choices = []
     db.query("SELECT * FROM department", (err, response) => {
         for (let i = 0; i < response.length; i++) {
-            choiceArray.push(response[i].department_name);
+            choices.push(response[i].department_name);
         }
         inquirer.prompt([
            {
@@ -115,7 +115,7 @@ function addRole() {
                type: "rawlist",
                name: "options",
                message: "What is the index of the department?",
-               choices: choiceArray
+               choices: choices
            },
            {
                type: "input",
@@ -145,3 +145,7 @@ function addRole() {
 }
 
 // Add Employee
+
+function addEmployee () {
+
+}

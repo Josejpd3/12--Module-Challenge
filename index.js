@@ -196,6 +196,22 @@ function updateEmployee () {
         for (let i = 0; i < response.length; i++) {
             employeeChoices.push(`ID:${response[i].id} ${response[i].first_name} ${response[i].last_name}`);
         }
+        inquirer.prompt([
+            {
+                type: "rawlist",
+                name: "employees",
+                message: "Select the ID of the employee",
+                choices: employeeChoices
+            },
+            {
+                type: "input",
+                name: "selectedEmployee",
+                message: "Please re-enter the ID of the employee"
+            }
+        ])
+        .then((data) => {
+            
+        })
     })
     db.query("SELECT * FROM role", (err, response) => {
         for (let i = 0; i < response.length; i++) {

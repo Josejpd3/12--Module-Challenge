@@ -190,5 +190,6 @@ function addEmployee () {
 // Update Employee
 
 function updateEmployee () {
-    
+    let employeeChoices = []
+    let roleChoices = []
 }

@@ -59,11 +59,10 @@ const initQuestion = function () {
                 addEmployee();
                 break;
             case "Update an employee":
-
+                updateEmployee()
                 break;
             case "Quit":
                 process.exit();
-                break;
             default:
                 break;
         }

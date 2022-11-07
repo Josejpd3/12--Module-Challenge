@@ -56,7 +56,7 @@ const initQuestion = function () {
                 addRole();
                 break;
             case "Add an employee":
-
+                addEmployee();
                 break;
             case "Update an employee":
 

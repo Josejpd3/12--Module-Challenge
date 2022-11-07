@@ -78,7 +78,8 @@ initQuestion()
 // -----------------------/
 
 
-// Add a deparment
+// Add Deparment
+
 function addDepartment () {
     inquirer
          .prompt([
@@ -96,7 +97,7 @@ function addDepartment () {
          })
     }
 
-// Add a role
+// Add Role
 
 function addRole() {
     let choiceArray = []
@@ -142,3 +143,5 @@ function addRole() {
     })
 
 }
+
+// Add Employee

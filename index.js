@@ -102,7 +102,7 @@ function addRole() {
     let choices = []
     db.query("SELECT * FROM department", (err, response) => {
         for (let i = 0; i < response.length; i++) {
-            choices.push(response[i].department_name);
+            choices.push(`ID:${response[i].id} ${response[i].department_name}`);
         }
         inquirer.prompt([
            {
@@ -111,15 +111,15 @@ function addRole() {
                message: "What is the name of the new role?"
            },
            {
-               type: "rawlist",
+               type: "list",
                name: "options",
-               message: "What is the index of the department?",
+               message: "What department does this role belong to?",
                choices: choices
            },
            {
                type: "input",
                name: "department",
-               message: `Please re-enter the index of the previous question?`
+               message: `Please enter the ID of the selected department:`
            },
            {
                type: "input",
@@ -149,7 +149,7 @@ function addEmployee () {
     let choices = []
     db.query("SELECT * FROM role", (err, response) => {
         for (let i = 0; i < response.length; i++) {
-            choices.push(response[i].title);
+            choices.push(`ID:${response[i].id} ${response[i].title}`);
         }
         inquirer.prompt([
             {
@@ -163,15 +163,15 @@ function addEmployee () {
                 message: "What is the last name of the new employee?"
             },
             {
-                type: "rawlist",
+                type: "list",
                 name: "rolelist",
-                message: "Select the index of the role for this employee",
+                message: "Select the role for this employee",
                 choices: choices
             },
             {
                 type: "input",
                 name: "role",
-                message: "Please re-enter the previous index"
+                message: "Please enter the ID for the selected role:"
             }
         ])
         .then((data) => {
@@ -198,7 +198,7 @@ function updateEmployee () {
         }
         db.query("SELECT * FROM role", (err, response) => {
             for (let i = 0; i < response.length; i++) {
-                roleChoices.push(response[i].title);
+                roleChoices.push(`ID:${response[i].id} ${response[i].title}`);
             }
         })
         inquirer.prompt([
@@ -211,18 +211,18 @@ function updateEmployee () {
             {
                 type: "input",
                 name: "selectedEmployee",
-                message: "Please enter the ID of the selected employee"
+                message: "Please enter the ID of the selected employee:"
             },
             {
-                type: "rawlist",
+                type: "list",
                 name: "roles",
-                message: "Select the ID of the new role",
+                message: "Select the new role",
                 choices: roleChoices
             },
             {
                 type: "input",
                 name: "selectedRole",
-                message: "Please re-enter the ID of the role"
+                message: "Please enter the ID of the role:"
             }
         ])
         .then((data) => {
